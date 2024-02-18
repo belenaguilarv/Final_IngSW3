@@ -1,27 +1,29 @@
 import express from 'express';
+import {db} from './db.js'
 
 
 const app = express();
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send('Home Page');
+
+// GET all the products from the list
+app.get('/products', (req, res) => {
+    res.send("Supermarket's list");
 });
 
-app.get('/students', (req, res) => {
-    res.send("Student's list");
+// INSERT a product
+app.post('/products', (req, res) => {
+    res.send("Insert a product to buy");
 });
 
-app.post('/students', (req, res) => {
-    res.send("Insert Student's full name");
-});
-
-app.delete('/students', (req, res) => {
-    res.send('Delete student');
+// DELETE a product from the list
+app.delete('/products/:id', (req, res) => {
+    res.send('Delete product from the list');
 });
 
 
+// Port connection 
 const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {

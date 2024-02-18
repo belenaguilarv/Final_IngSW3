@@ -1,13 +1,12 @@
-CREATE DATABASE IF NOT EXISTS studentsdb;
+CREATE DATABASE IF NOT EXISTS supermarketdb;
 
-USE studentsdb;
+USE supermarketdb;
 
-CREATE TABLE student(
+CREATE TABLE list(
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(40) DEFAULT NULL,
-    lastname VARCHAR(40) DEFAULT NULL,
-    note INT NOT NULL
+    product VARCHAR(40) DEFAULT NULL,
+    quantity INT NOT NULL
 );
 
-DESCRIBE student;
+DESCRIBE list;
 

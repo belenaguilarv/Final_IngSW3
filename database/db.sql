@@ -1,0 +1,13 @@
+CREATE DATABASE IF NOT EXISTS studentsdb;
+
+USE studentsdb;
+
+CREATE TABLE student(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(40) DEFAULT NULL,
+    lastname VARCHAR(40) DEFAULT NULL,
+    note INT NOT NULL
+);
+
+DESCRIBE student;
+

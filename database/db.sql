@@ -15,3 +15,4 @@ INSERT INTO list (product, quantity) VALUES ('palta', 1);
 INSERT INTO list (product, quantity) VALUES ('zanahoria', 4);
 
 -- SELECT * FROM list;     para ver todos los productos de la lista
+-- DELETE FROM list WHERE id = 2; 

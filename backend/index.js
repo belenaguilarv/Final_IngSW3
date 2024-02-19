@@ -7,9 +7,18 @@ const app = express();
 app.use(express.json());
 
 
+
+
+
+
 // GET all the products from the list
-app.get('/products', (req, res) => {
-    res.send("Supermarket's list");
+app.get('/products', async (req, res) => {
+    try {
+        const [rows] = await db.query("SELECT * FROM list");
+        res.json(rows)
+    } catch (error) {
+        return res.status(500).json({ message: "Server error" });
+    }
 });
 
 // INSERT a product

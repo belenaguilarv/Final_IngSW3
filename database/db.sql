@@ -10,3 +10,8 @@ CREATE TABLE list(
 
 DESCRIBE list;
 
+INSERT INTO list (product, quantity) VALUES ('durazno', 6);
+INSERT INTO list (product, quantity) VALUES ('palta', 1);
+INSERT INTO list (product, quantity) VALUES ('zanahoria', 4);
+
+-- SELECT * FROM list;     para ver todos los productos de la lista

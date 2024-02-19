@@ -6,6 +6,7 @@ const app = express();
 app.use(express.json());
 
 
+
 // GET all the products from the list
 app.get('/products', async (req, res) => {
     try {

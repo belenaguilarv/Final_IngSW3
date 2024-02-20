@@ -4,7 +4,7 @@ import { expect } from "chai";
 import { db } from "./db.js";
 import sinon from "sinon";
 
-describe("/GET list", async () => {
+describe("GET /products", async () => {
 
     it("should respond with a valid array of products", async () => {
         
@@ -25,7 +25,7 @@ describe("/GET list", async () => {
 });  
 
 
-describe("/POST products", async () => {
+describe("POST /products", async () => {
 
     it("should insert a new product into the list", async () => {
 
@@ -48,6 +48,28 @@ describe("/POST products", async () => {
         queryStub.restore();
     });
 });
+
+describe("DELETE /products/:id", async () => {
+
+    it("should delete an existing product from the list", async () => {
+        
+        const productIdToDelete = 100;
+
+        const queryStub = sinon.stub(db, "query");
+
+        queryStub.withArgs(
+            "DELETE FROM list WHERE id = ?", 
+            [productIdToDelete]
+            ).resolves({ affectedRows: 1 }); 
+        
+        const res = await request(app).delete(`/products/${productIdToDelete}`);
+        
+        expect(res.status).to.equal(204);
+        queryStub.restore();
+
+    });
+});
+
 
 
 

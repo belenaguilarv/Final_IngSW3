@@ -23,7 +23,9 @@ app.post('/products', async (req, res) => {
     try {
         const {product, quantity} = req.body
         const result = await db.query('INSERT INTO list (product, quantity) VALUES (?, ?)', [product, quantity]);
+        
         const insertId = result.insertId;
+        
         res.status(201).json({ id: insertId, product, quantity });
     } catch (error) {
         console.error(error);
@@ -35,15 +37,12 @@ app.post('/products', async (req, res) => {
 app.delete('/products/:id', async (req, res) => {
     try {
         const { id } = req.params;
-        const [rows] = await db.query("DELETE FROM list WHERE id = ?", [id]);
-
-        if (rows.affectedRows <= 0) {
-            return res.status(404).json({ message: "Product not found" });
-        }
+        const result = await db.query("DELETE FROM list WHERE id = ?", [id]);
 
         res.sendStatus(204);
       
     } catch (error) {
+        console.error(error)
         return res.status(500).json({ message: "Server error" });        
     }
 });

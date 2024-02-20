@@ -7,6 +7,7 @@ app.use(express.json());
 
 
 
+
 // GET all the products from the list
 app.get('/products', async (req, res) => {
     try {
@@ -21,11 +22,11 @@ app.get('/products', async (req, res) => {
 app.post('/products', async (req, res) => {
     try {
         const {product, quantity} = req.body
-        const [rows] = await db.query(
-            'INSERT INTO list (product, quantity) VALUES (?, ?)', [product, quantity]
-        );
-        res.status(201).json({ id: rows.insertId, product, quantity });
+        const result = await db.query('INSERT INTO list (product, quantity) VALUES (?, ?)', [product, quantity]);
+        const insertId = result.insertId;
+        res.status(201).json({ id: insertId, product, quantity });
     } catch (error) {
+        console.error(error);
         return res.status(500).json({ message: "Server error" });
     }
 });

@@ -24,8 +24,8 @@ describe("/GET list", async () => {
 
 });  
 
-/*
-describe("/POST products", () => {
+
+describe("/POST products", async () => {
 
     it("should insert a new product into the list", async () => {
 
@@ -34,21 +34,25 @@ describe("/POST products", () => {
             quantity: 15
         };
 
-        const insertStub = sinon.stub(db, "query");
+        const queryStub = sinon.stub(db, "query");
 
-        insertStub.withArgs("INSERT INTO list (product, quantity) VALUES (?, ?)",
+        queryStub.withArgs(
+            "INSERT INTO list (product, quantity) VALUES (?, ?)",
             [newProduct.product, newProduct.quantity]
-        ).resolves({ insertId: 10000 });
+        ).resolves({ insertId: newProduct.id });
 
         const res = await request(app).post("/products").send(newProduct);
 
         expect(res.status).to.equal(201);
-  //      expect(res.body).to.deep.equal({ id: 10000, ...newProduct });
-        insertStub.restore();
+        expect(res.body).to.deep.equal({ product: newProduct.product, quantity: newProduct.quantity });
+        queryStub.restore();
     });
 });
-*/
-    // Finaliza el proceso después de las pruebas
-    after(function () {
-        process.exit(0); 
-    });
+
+
+
+
+// Finaliza el proceso después de las pruebas
+after(function () {
+    process.exit(0); 
+});

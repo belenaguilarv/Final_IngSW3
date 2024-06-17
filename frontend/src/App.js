@@ -57,7 +57,7 @@ function App() {
       </form>
       <h2 className="title2">¿Que tengo que comprar?</h2>
       <ul className="product-list">
-        {products.map(product => (
+        {Array.isArray(products) && products.map(product => (
           <li key={product.id} className="product-item">
             <span className="product-name">{product.product}</span> 
             <span className="product-quantity">{product.quantity}</span>

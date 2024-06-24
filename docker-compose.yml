@@ -3,7 +3,6 @@ version: '3'
 services:
   backend:
     build: ./backend
-    image: ${{ secrets.DOCKERHUB_USERNAME }}/backend:latest
     container_name: backend
     ports:
       - "4000:4000"
@@ -14,7 +13,6 @@ services:
 
   mysql-container:
     build: ./db
-    image: ${{ secrets.DOCKERHUB_USERNAME }}/database:latest
     container_name: mysql-container
     ports:
       - "3307:3306"
@@ -25,7 +23,6 @@ services:
 
   frontend:
     build: ./frontend
-    image: ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest
     container_name: frontend
     ports:
       - "3000:3000"

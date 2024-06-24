@@ -12,7 +12,7 @@ services:
       - mysql-container
 
   mysql-container:
-    build: ./db
+    build: ./database
     container_name: mysql-container
     ports:
       - "3307:3306"

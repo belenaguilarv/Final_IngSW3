@@ -125,8 +125,8 @@ jobs:
 
       - name: Deploy database service to Cloud Run
         run: |
-          gcloud run deploy partidos-de-futbol-database \
-            --image=gcr.io/${{ secrets.GCP_PROJECT_ID }}/google_database:latest \
+          gcloud run deploy finalingsw3-database \
+            --image=gcr.io/${{ secrets.GCP_PROJECT_ID }}/database:latest \
             --platform=managed \
             --allow-unauthenticated \
             --memory=4G \
@@ -135,8 +135,8 @@ jobs:
 
       - name: Deploy frontend service to Cloud Run
         run: |
-          gcloud run deploy partidos-de-futbol-frontend \
-            --image=gcr.io/${{ secrets.GCP_PROJECT_ID }}/google_frontend:latest \
+          gcloud run deploy finalingsw3-frontend \
+            --image=gcr.io/${{ secrets.GCP_PROJECT_ID }}/frontend:latest \
             --platform=managed \
             --allow-unauthenticated \
             --memory=4G \
@@ -145,8 +145,8 @@ jobs:
 
       - name: Deploy backend service to Cloud Run
         run: |
-          gcloud run deploy partidos-de-futbol-backend \
-            --image=gcr.io/${{ secrets.GCP_PROJECT_ID }}/google_backend:latest \
+          gcloud run deploy finalingsw3-backend \
+            --image=gcr.io/${{ secrets.GCP_PROJECT_ID }}/backend:latest \
             --platform=managed \
             --allow-unauthenticated \
             --memory=4G \

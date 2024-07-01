@@ -5,7 +5,7 @@ services:
     build: ./backend
     container_name: backend
     ports:
-      - "8080:8080"
+      - "4000:4000"
     networks:
       - mynetwork
     depends_on:
@@ -15,7 +15,7 @@ services:
     build: ./database
     container_name: mysql-container
     ports:
-      - "3306:3306"
+      - "3307:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
     networks:

@@ -3,7 +3,7 @@ version: '3'
 services:
   backend:
     build: ./backend
-    container_name: backend
+    image: backend-image
     ports:
       - "4000:4000"
     networks:
@@ -12,10 +12,10 @@ services:
       - mysql-container
 
   mysql-container:
-    build: ./database
-    container_name: mysql-container
+    build: ./db
+    image: mysql-image
     ports:
-      - "3307:3306"
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
     networks:
@@ -23,7 +23,7 @@ services:
 
   frontend:
     build: ./frontend
-    container_name: frontend
+    image: frontend-image
     ports:
       - "3000:3000"
     networks:

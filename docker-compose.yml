@@ -5,7 +5,7 @@ services:
     build: ./backend
     image: backend-image
     ports:
-      - "4000:4000"
+      - "8080:8080"
     networks:
       - mynetwork
     depends_on:

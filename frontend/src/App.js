@@ -7,7 +7,7 @@ function App() {
   const [quantity, setQuantity] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:4000/products')
+    fetch('http://localhost:8080/products')
       .then(response => response.json())
       .then(data => setProducts(data))
       .catch(error => console.error('Error fetching products:', error));
@@ -15,7 +15,7 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch('http://localhost:4000/products', {
+    fetch('http://localhost:8080/products', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -32,7 +32,7 @@ function App() {
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:4000/products/${id}`, {
+    fetch(`http://localhost:8080/products/${id}`, {
       method: 'DELETE'
     })
     .then(() => {

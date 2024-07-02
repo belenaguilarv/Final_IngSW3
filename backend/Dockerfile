@@ -14,7 +14,7 @@ RUN npm install --production
 COPY . .
 
 # Expone el puerto en el que se ejecutará la aplicación
-EXPOSE 4000
+EXPOSE 8080
 
 # Comando para ejecutar la aplicación
 CMD ["node", "index.js"]

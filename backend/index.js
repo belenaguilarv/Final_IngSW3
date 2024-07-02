@@ -54,7 +54,7 @@ app.delete('/products/:id', async (req, res) => {
 
 
 // Port connection
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
     console.log(`Servidor en el puerto ${PORT}`);

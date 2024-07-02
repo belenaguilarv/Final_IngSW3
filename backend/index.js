@@ -53,15 +53,11 @@ app.delete('/products/:id', async (req, res) => {
 });
 
 
-// Port connection 
+// Port connection
 const PORT = process.env.PORT || 4000;
 
-const server = app.listen(PORT, (err) => {
-    if (err) {
-        console.error('Error al iniciar el servidor:', err);
-    } else {
-        console.log(`Servidor en el puerto ${server.address().port}`);
-    }
+app.listen(PORT, () => {
+    console.log(`Servidor en el puerto ${PORT}`);
 });
 
 

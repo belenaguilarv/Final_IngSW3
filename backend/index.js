@@ -44,7 +44,7 @@ app.delete('/products/:id', async (req, res) => {
 });
 
 // Port connection
-const PORT = process.env.PORT || 8090;
+const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, (err) => {
     if (err) {

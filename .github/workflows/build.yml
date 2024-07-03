@@ -152,4 +152,28 @@ jobs:
             --memory=4G \
             --cpu=2 \
             --port=4000
+
+  integration-test:
+    needs: cloud_implementation
+    runs-on: ubuntu-latest
+  
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+  
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'latest'
+  
+      - name: Install Dependencies and CodeceptJS
+        working-directory: frontend
+        run: |
+          npm install
+          npx playwright install
+          sudo apt-get install -y xvfb
+  
+      - name: Run Integration Tests with xvfb-run
+        working-directory: frontend
+        run: xvfb-run -a npx codeceptjs run --steps
             

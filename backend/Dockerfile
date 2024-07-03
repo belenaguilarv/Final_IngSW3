@@ -14,7 +14,7 @@ RUN npm install --production
 COPY . .
 
 # Copia el archivo HTML al directorio de trabajo del contenedor
-COPY ../frontend/public/index.html .
+COPY ../frontend/public/index.html ./public/
 
 # Expone el puerto en el que se ejecutará la aplicación
 EXPOSE 4000

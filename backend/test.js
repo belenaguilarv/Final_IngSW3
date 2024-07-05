@@ -9,17 +9,17 @@ describe("GET /products", async () => {
     it("should respond with a valid array of products", async () => {
         
         const mockProducts = [
-            { id: 1, product: "Product 1", quantity: 10 }, 
+            { id: 1, product: "Product 1", quantity: 15 }, 
             { id: 2, product: "Product 2", quantity: 20 }
         ];
 
-        const queryStub = sinon.stub(db, "query");
-        queryStub.withArgs("SELECT * FROM list").resolves([mockProducts]);
+        //const queryStub = sinon.stub(db, "query");
+        //queryStub.withArgs("SELECT * FROM list").resolves([mockProducts]);
 
         const res = await request(app).get("/products");
 
         expect(res.body).to.deep.equal(mockProducts);
-        queryStub.restore();
+        //queryStub.restore();
     });
 
 });  

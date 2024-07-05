@@ -43,7 +43,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1 className="title">La Lista del Super</h1>
+      <h1 className="title">La Lista del Supermercado</h1>
       <form className="form" onSubmit={handleSubmit}>
         <div className="input">
           <label htmlFor="product" id='productotitle'>Producto: </label>
